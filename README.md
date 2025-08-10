@@ -1,4 +1,4 @@
-# Build a Python ChatBot with the Ollama
+# Build a Python ChatBot with the Python and Ollama
 
 This project walks through building a simple chatbot using the Ollama LLM, Langchain,  Python, and Streamlit. 
 
