@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
@@ -83,3 +84,4 @@ if st.button("Clear Conversation"):
     st.session_state.context = ""
 
     st.rerun()
+
