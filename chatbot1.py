@@ -2,6 +2,9 @@ import streamlit as st
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")  # Use environment variable or default
+
+
 # Template for the conversation
 template = """
 Answer the following questions:
@@ -15,6 +18,7 @@ Answer:
 def initialize_chain():
     """Initialize the LLM and chain - cached to avoid recreation on every run"""
     model = OllamaLLM(model="llama3.2")
+    url = OLLAMA_HOST
     prompt = ChatPromptTemplate.from_template(template)
     chain = prompt | model
     return chain
@@ -77,4 +81,5 @@ if user_input := st.chat_input("Type your message here..."):
 if st.button("Clear Conversation"):
     st.session_state.messages = []
     st.session_state.context = ""
+
     st.rerun()
